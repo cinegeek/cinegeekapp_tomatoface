@@ -2,7 +2,6 @@
 $pattern = "/this$/i";
 $str = "this is this";
 echo preg_match($pattern, $str); 
-
 ?>
 <!DOCTYPE HTML>
 <html lang="en-US">
