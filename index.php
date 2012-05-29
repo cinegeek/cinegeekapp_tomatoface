@@ -13,6 +13,11 @@ echo preg_match($pattern, $str);
 <body>
 	<div id="id">
 		<p>main</p>
+		<p>main</p>
+		<p>main</p>
+		<p>main</p>
+		<p>main</p>
+		<p>main</p>
 	</div>
 </body>
 </html>
