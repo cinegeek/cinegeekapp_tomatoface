@@ -1,22 +1,24 @@
 <?php
-$pattern = "/this$/i";
-$str = "this is this";
-echo preg_match($pattern, $str); 
+
 ?>
 <!DOCTYPE HTML>
-<html lang="en-US">
+<html lang="ja-JP">
 <head>
-	<meta charset="UTF-8">
-	<title></title>
+ <meta charset="UTF-8">
+ <link rel="stylesheet" href="css/style.css">
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+ <script type="text/javascript" src="js/tf_canvas.js"></script>
+ <title></title>
 </head>
 <body>
-	<div id="id">
-		<p>main</p>
-		<p>main</p>
-		<p>main</p>
-		<p>main</p>
-		<p>main</p>
-		<p>main</p>
-	</div>
+<div id="frame_left"></div>
+<div id="frame_right"></div>
+<div id="frame_bottom"></div>
+<div id="frame_top"></div>
+<div id="top_title">
+  <canvas id="canvas_mask"></canvas>
+  <img src="img/circle.png" alt=""/>
+  <img src="img/title_1.png" alt="Rotten Tomatoes x Facebook"/>
+</div>
 </body>
-</html>
+</html> 

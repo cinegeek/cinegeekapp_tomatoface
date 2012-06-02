@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+html,body{
+	height: 100%;
+	min-height: 100%;
+	width:100%;
+	min-width:100%;
+}
+body{
+	background-image: url("../img/back_pattern.gif");
+	padding:0;
+	margin:0;
+}
+
+#frame_right{
+	position:absolute;
+	z-index: 10000;
+	right:0;
+	width:20px;
+	height:100%;
+	min-height: 100%;
+	background-color: #FFFFFF;
+}
+#frame_left{
+	position:absolute;
+	z-index: 10000;
+	left:0;
+	width:20px;
+	height:100%;
+	min-height: 100%;
+	background-color: #FFFFFF;
+}
+#frame_bottom{
+	position:absolute;
+	z-index: 10000;
+	bottom:0;
+	width:100%;
+	height:20px;
+	min-width: 100%;
+	background-color: #FFFFFF;
+}
+#frame_top{
+	position:absolute;
+	z-index: 10000;
+	width:100%;
+	height:20px;
+	min-width: 100%;
+	background-color: #FFFFFF;
+}
+
+#top_title{
+	position: absolute;
+	width:550px;
+	height:380px;
+	left:50%;
+	top:50%;
+	margin-left:-275px;
+	margin-top:-115px;
+}
+
+#canvas_mask{
+	position: absolute;
+}
+#tomato_face{
+	position: absolute;
+}
+
