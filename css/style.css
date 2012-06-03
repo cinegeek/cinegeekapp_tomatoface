@@ -12,6 +12,7 @@ body{
 	margin:0;
 }
 
+/*フレーム設定*/
 #frame_right{
 	position:absolute;
 	z-index: 10000;
@@ -48,20 +49,44 @@ body{
 	background-color: #FFFFFF;
 }
 
+/*タイトル*/
 #top_title{
 	position: absolute;
 	width:550px;
 	height:380px;
 	left:50%;
 	top:50%;
-	margin-left:-275px;
-	margin-top:-115px;
+	margin-left:-270px;
+	margin-top:-180px;
 }
-
 #canvas_mask{
+	z-index:5000;
 	position: absolute;
 }
 #tomato_face{
 	position: absolute;
+}
+.circle{
+	position: absolute;
+}
+.t{
+	position:absolute;
+}
+.rt_f_title{
+	margin-left:108px;
+	margin-top:18px;
+	position:absolute;
+}
+.font1{
+	font-size:13px;
+	color:#333;
+	text-align: center;
+}
+.title_des{
+	margin-top:20px;
+}
+.login_btn{
+	margin-top:20px;
+	margin-left:150px;
 }
 
