@@ -7,6 +7,8 @@
  <meta charset="UTF-8">
  <link rel="stylesheet" href="css/style.css">
  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+ <script type="text/javascript" src="js/enterframe.min.js"></script>
+ <script type="text/javascript" src="js/timeline.min.js"></script>
  <script type="text/javascript" src="js/tf_canvas.js"></script>
  <title></title>
 </head>
