@@ -7,7 +7,7 @@ $facebook = new Facebook(array(
 ));
 $user = $facebook->getUser();
 session_start();
-$_SESSION['rfid'] = $facebook;
+$_SESSION['faceid'] = serialize($facebook);
 if ($user) {
   $logoutUrl = $facebook->getLogoutUrl();
 } else {

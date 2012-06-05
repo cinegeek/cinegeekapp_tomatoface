@@ -89,4 +89,11 @@ body{
 	margin-top:20px;
 	margin-left:150px;
 }
+#titobj{
+	position: absolute;
+}
+#titobj2{
+	position: absolute;
+	margin-top:190px;
+}
 
