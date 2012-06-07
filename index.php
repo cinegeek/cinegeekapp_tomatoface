@@ -26,6 +26,7 @@
 			titleStart();
 		});
 		function ftStart(){
+			opening_flg = true;
 			$("#maincontents").animate({
 				opacity:"0"
 			},1000,"easeOutSine",function(){

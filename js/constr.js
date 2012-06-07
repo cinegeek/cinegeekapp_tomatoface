@@ -1,5 +1,10 @@
 function loadCont(){
-	$("#maincontents").html("<div class='loadingimg'><img src='img/loadinfo.gif'/><div><div class='face'></div>");
+	$("#maincontents").html("<div class='loadingimg'><img src='img/loadinfo.gif'/></div><div class='face'></div><div class='tomatomen'></div>");
+    $(".tomatomen").html("<img src='img/tomatomen.png'/>");
+    $(".tomatomen").css({
+        opacity:"0",
+        marginLeft:"900px"
+    });
 	$("#maincontents").animate({
 		opacity:"1"
 	});
@@ -28,7 +33,7 @@ function XMLHttpRequestByPost(postdata){
             case 4:
             /* 完了の場合、サーバから送られたデータを表示 */
             if(request.status == 200){
-                $("#maincontents").html("<div class='face'></div>");
+                $(".loadingimg").remove();
                 $('.face').html(request.responseText);
                 $('.face').css("opacity","0");
             }
@@ -39,6 +44,9 @@ function XMLHttpRequestByPost(postdata){
 }
 function proimg(){
     $('.face').animate({
+        opacity:"1"
+    },1000);
+    $('.tomatomen').animate({
         opacity:"1"
     },1000);
 }

@@ -1,5 +1,6 @@
 <?php
 require 'lib/facebook-php-sdk/src/facebook.php';
+require 'lib/yuhhh/imagecrop.php';
 session_start();
 $facebook = unserialize($_SESSION['faceid']);
 if ($facebook) {

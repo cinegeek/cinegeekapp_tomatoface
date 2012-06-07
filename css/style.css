@@ -10,6 +10,7 @@ body{
 	background-image: url("../img/back_pattern.gif");
 	padding:0;
 	margin:0;
+	overflow: hidden;
 }
 
 /*フレーム設定*/

@@ -9,8 +9,10 @@ var bup = true;
 var rmv = false;
 var leftflg = false;
 var rightflg = false;
+var opening_flg = false;
 
 function draw(radius,xx,yy) {
+  if(opening_flg) return;
   ctx.clearRect(0, 0,500,500);
   ctx.restore();
   ctx.beginPath();

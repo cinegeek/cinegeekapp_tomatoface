@@ -20,6 +20,6 @@ function titleStart(){
 		$(".t"+String(i+1)).animate({
 			marginTop:"105px",
 			opacity:"1"
-		},200*i,"easeOutSine");
+		},200*i);
 	}
 }
