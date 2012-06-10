@@ -38,6 +38,7 @@ function XMLHttpRequestByPost(postdata,num){
             }else if(postdata == "facebookmovies"){
                 if(request.status == 200){
                     $('.fukicont').html(request.responseText);
+                    //ロード中に
                     $(".fbmimg").load(function(){
                         movieSort(m_count);
                     });
