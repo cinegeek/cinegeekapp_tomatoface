@@ -56,7 +56,7 @@
 		  <img class="tit t7" src="img/title_2_7.png" alt="Rotten Tomatoes x Facebook"/>
 		</div>
 		<div id="titobj2">
-			<p class="font1 title_des">あなたの映画センスを映画評論サイト『Rotten Tomatoe』に評価してもらいましょう！
+			<p class="font0 title_des">あなたの映画センスを映画評論サイト『Rotten Tomatoe』に評価してもらいましょう！
 				Facebookでできるだけ多くの映画にいいねして挑戦してみてください！！<p>
 			<a href="javascript:window.open('sys/faceaccess.php','windowname','width=900,height=450');void(0);"><img class="login_btn" src="img/login_btn.jpg" onmouseover="this.src='img/login_btn_on.jpg'" onmouseout="this.src='img/login_btn.jpg'" alt="login"/></a>
 		</div>	

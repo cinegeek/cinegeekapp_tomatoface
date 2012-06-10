@@ -8,9 +8,66 @@
 	margin-left:-24px;
 	margin-top:-24px;
 }
+#contents{
+	position: absolute;
+	left:50%;
+	top:50%;
+	width:10px;
+	height:10px;
+}
 .tomatomen{
 	position: absolute;
+	opacity:0;
+	margin-left:180px;
+	margin-top:-300px;
 }
 .face{
 	position: absolute;
+	background-image: url("../img/fukidashi.png");
+	background-repeat:no-repeat;
+	width:959px;
+	height:806px;
+	margin-left:-600px;
+	margin-top:-500px;
+	text-align:center;
+}
+.fukicont{
+	font-size:18px;
+	font-weight:bold;
+	width:450px;
+	height:250px;
+	margin-top:250px;
+	margin-left:auto;
+	margin-right:auto;
+}
+.cont{
+	margin:0 auto;
+}
+.cont1{
+	margin-top:15px;
+}
+.cont2{
+	opacity: 0;
+	-moz-opacity: 0;
+	filter:alpha(opacity=0);
+	margin-top:15px;
+}
+/*フォント*/
+.font1{
+	color:#3a7d08;
+}
+.font2{
+	color:#0c8de5;
+}
+.font3{
+	color:#f41414;
+}
+
+.radirect{
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+}
+.facebookbtn{
+	margin-top:20px;
 }

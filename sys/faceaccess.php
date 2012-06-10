@@ -2,8 +2,8 @@
 require 'lib/facebook-php-sdk/src/facebook.php';
 // require 'lib/database.php';
 $facebook = new Facebook(array(
-  'appId'  => '378919358825604',
-  'secret' => '82259db82706f23f678d061f41304667',
+  'appId'  => '482924718390278',
+  'secret' => 'ee7ea8fc2c483cd0e5431720fef74415',
 ));
 $user = $facebook->getUser();
 session_start();

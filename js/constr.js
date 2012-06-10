@@ -1,14 +1,12 @@
+var m_count = 0;
 function loadCont(){
-	$("#maincontents").html("<div class='loadingimg'><img src='img/loadinfo.gif'/></div><div class='face'></div><div class='tomatomen'></div>");
+	$("#maincontents").html("<div class='loadingimg'><img src='img/loadinfo.gif'/></div><div id='contents'><div class='face'></div><div class='tomatomen'></div></div>");
     $(".tomatomen").html("<img src='img/tomatomen.png'/>");
-    $(".tomatomen").css({
-        opacity:"0",
-        marginLeft:"900px"
-    });
 	$("#maincontents").animate({
 		opacity:"1"
 	});
-	XMLHttpRequestByPost("this");
+    $('.face').css("opacity","0");
+	XMLHttpRequestByPost("name",0);
 }
 function createXMLHttpRequest(){
     if(window.addEventListener){
@@ -18,7 +16,7 @@ function createXMLHttpRequest(){
     }
 
 }
-function XMLHttpRequestByPost(postdata){
+function XMLHttpRequestByPost(postdata,num){
 
     var request = createXMLHttpRequest();
 
@@ -26,16 +24,22 @@ function XMLHttpRequestByPost(postdata){
     request.open("POST", "sys/catch.php" , true);
     request.onreadystatechange = readyStateChangeHandler;
     request.setRequestHeader( "Content-Type" ,  "application/x-www-form-urlencoded");
-    request.send("my=" + postdata);
-
+    request.send("value=" + postdata + "&fm_num=" + num);
     function readyStateChangeHandler(){
         switch(request.readyState){
             case 4:
-            /* 完了の場合、サーバから送られたデータを表示 */
-            if(request.status == 200){
+            if(postdata == "name"){
+                /* 完了の場合、サーバから送られたデータを表示 */
+                if(request.status == 200){
                 $(".loadingimg").remove();
                 $('.face').html(request.responseText);
-                $('.face').css("opacity","0");
+                }
+            }else{
+                if(request.status == 200){
+                $('.face').html(request.responseText);
+                m_count ++;
+                movieSort(m_count);
+                }
             }
             break;
         }
@@ -43,10 +47,30 @@ function XMLHttpRequestByPost(postdata){
 
 }
 function proimg(){
-    $('.face').animate({
-        opacity:"1"
-    },1000);
+    
     $('.tomatomen').animate({
+        opacity:"1",
+        marginTop:"-300px",
+        marginLeft:"-200px"
+    },800,"easeOutElastic",function(){
+        fukidashiout();
+    });
+}
+function fukidashiout(){
+    $('.face').delay(1500).animate({
         opacity:"1"
     },1000);
+    
+   $('.tomatomen').animate({
+        marginTop:"-180px",
+        marginLeft:"110px"
+    },800,"easeInOutCubic");
+   $('.cont2').delay(3000).animate({
+        opacity:"1"
+    },1000,"easeOutSine",movieSort(m_count));
 }
+function movieSort(num){
+    XMLHttpRequestByPost("facebookmovies",num);
+}
+
+
