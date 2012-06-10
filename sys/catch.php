@@ -53,8 +53,8 @@ $fm_num = $_POST['fm_num'];
 $movie_info = file_get_contents("http://graph.facebook.com/".$user_movies['data'][$fm_num]['id']);
 $info = json_decode(trim($movie_info));
 echo <<<EOF
-<div class='fukicont'><img class="radirect" src='{$info->picture}'/>
-<p>ふむふむ。</br>『 <span class='font2'>{$user_movies['data'][$fm_num]['name']}</span> 』</p></div>
+<img class="radirect fbmimg" src='{$info->picture}'/>
+<p>ふむふむ。</br>『 <span class='font2'>{$user_movies['data'][$fm_num]['name']}</span> 』</p>
 EOF;
 break;
 }

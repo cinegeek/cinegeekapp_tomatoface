@@ -1,4 +1,5 @@
 var m_count = 0;
+var m_count_max = 0;
 function loadCont(){
 	$("#maincontents").html("<div class='loadingimg'><img src='img/loadinfo.gif'/></div><div id='contents'><div class='face'></div><div class='tomatomen'></div></div>");
     $(".tomatomen").html("<img src='img/tomatomen.png'/>");
@@ -34,11 +35,12 @@ function XMLHttpRequestByPost(postdata,num){
                 $(".loadingimg").remove();
                 $('.face').html(request.responseText);
                 }
-            }else{
+            }else if(postdata == "facebookmovies"){
                 if(request.status == 200){
-                $('.face').html(request.responseText);
-                m_count ++;
-                movieSort(m_count);
+                    $('.fukicont').html(request.responseText);
+                    $(".fbmimg").load(function(){
+                        movieSort(m_count);
+                    });
                 }
             }
             break;
@@ -71,6 +73,7 @@ function fukidashiout(){
 }
 function movieSort(num){
     XMLHttpRequestByPost("facebookmovies",num);
+    m_count ++;
 }
 
 
