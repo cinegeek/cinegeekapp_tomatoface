@@ -51,7 +51,6 @@ function get_poster($search_str){
   $rotten_str = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey='.ROTTEN_API.'&q='.$search_str.'&page_limit=1';
   $rotten_str = preg_replace('/\s+/', '+', $rotten_str);
   
-  
   $movie_info = file_get_contents($rotten_str);
   
   $info = json_decode(trim($movie_info));
@@ -82,7 +81,7 @@ function get_opening(){
 			
 			$title = translate($value->title);
 			$detail = translate($value->critics_consensus);
-			echo $title." ¡Ú".$value->title."¡Û"."<br>";
+			echo $title." Â¡Ãš".$value->title."Â¡Ã›"."<br>";
 			echo $detail."<br>";
 			echo $value->ratings->critics_score."<br><br>";
 		}
