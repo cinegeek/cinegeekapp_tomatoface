@@ -41,7 +41,7 @@ function get_point($search_str){
   $info = json_decode(trim($movie_info));
   $movie = $info->movies;
   if(count($movie) > 0){
-  	return $movie[0]->ratings->critics_score;
+  	return $movie[0]->title."/".$movie[0]->ratings->critics_score;
   }else{
   	return null;
   }
