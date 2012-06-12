@@ -1,7 +1,6 @@
 <?php
 
 function saveimage($url,$title){
-	
 	list($width,$height) = getimagesize($url);
 	$src = imagecreatefromjpeg($url);
 	$per = 300 / $width;

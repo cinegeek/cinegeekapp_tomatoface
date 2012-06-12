@@ -1,5 +1,7 @@
 <?php
-require_once("lib/rotten/rotten_func.php");
-require_once("lib/yuhhh/Translate.php");
-$m = TranslateToEn($_POST['str']);
-echo $m.get_point($m);
+require_once("lib/movie/rottentomato.php");
+require_once("lib/yuhhh/translate.php");
+$trans = new Translator();
+$rapi = new RottenAPI();
+$m = $trans->TranslateToEn($_POST['str']);
+echo $rapi->Lget_point($m);
