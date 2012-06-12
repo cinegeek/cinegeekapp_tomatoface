@@ -64,8 +64,6 @@ echo <<<EOF
 <p>ふむふむ。</br>『 <span class='font2'>{$user_movies['data'][$fm_num]['name']}</span> 』<br/>以上ですべてですね。</p>
 EOF;
 }
-// $_SESSION = array();
 break;
 }
-// session_destroy();
 ?>
