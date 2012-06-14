@@ -3,6 +3,7 @@ var m_count_max = 0;
 var m_arr = new Array();
 var p_arr = new Array();
 function loadCont(){
+
 	$("#maincontents").html("<div class='loadingimg'><img src='img/loadinfo.gif'/></div><div id='contents'><div class='face'></div><div class='tomatomen'></div></div>");
     $(".tomatomen").html("<img src='img/tomatomen.png'/>");
 	$("#maincontents").animate({
@@ -66,18 +67,15 @@ function XMLHttpCritics(searchstr){
     function readyStateChangeHandler(){
         switch(request.readyState){
             case 4:
-            $('.fukicont').css({
-                marginTop:"620px",
-                opacity:"0"
-            });
-            $('.fukicont').html("<div class='rtcont'>" + m_arr[m_count]+"/"+request.responseText+ "</div>");
-            $('.fukicont').animate({
-                marginTop:"400px",
-                opacity:"1"
-            },400,"easeOutBack");
-            m_count ++;
-            p_arr.push($('.point').text());
-            criticsStr();
+                var perstr = "";
+                if(request.responseText != " <span class='font5'>%</span>"){
+                    $('.fukicont .font2:eq('+m_count+')').append(request.responseText);
+                }else{
+                    $('.fukicont .font2:eq('+m_count+')').append("対象外です");
+                    $('.fukicont .font2:eq('+m_count+')').css("color","#ddd");
+                }
+                m_count++;
+                criticsStr();
             break;
         }
     }
@@ -136,9 +134,9 @@ function movieEnd(){
         marginTop:"500px",
         opacity:"0"
     });
-    $('.fukicont').html("<p class='m_all'>あなたが好きな映画は以下の通りですね？</br></br></p>");
+    $('.fukicont').html("<p class='m_all'>ではこちらを映画評論サイト『Rotten Tomato』で</br>評価してもらいましょう！</br></p>");
     for(var i = 0 ; i < m_arr.length ; i++){
-        $('.fukicont .m_all').append("・<span class='font2'>" + m_arr[i] + "</span></br>");
+        $('.fukicont').append("<p class='font2'>" + m_arr[i] + "</p>");
         if(i == m_arr.length - 1){
             $('.fukicont .m_all').append("");
         }
@@ -146,14 +144,7 @@ function movieEnd(){
     $('.fukicont').animate({
         marginTop:400 - $('.fukicont').height()/2 + "px",
         opacity:"1"
-    },400,"easeOutBack");
-    $('.fukicont').delay(4500).animate({
-        opacity:"0"
-    },400,"easeOutSine",function(){
-        $(".fukicont").html("");
-        $(".fukicont").css({
-            marginTop:"500px"
-        });        
+    },400,"easeOutBack",function(){
         m_count = 0;
         criticsStr();
     });
@@ -162,10 +153,5 @@ function criticsStr(){
     if(m_count != m_count_max){
         XMLHttpCritics(m_arr[m_count]);
     }else{
-        var point = 0;
-        for(var i = o ; i < m_count_max ; i++){
-            point += p_arr[i];
-        }
-        alert(point / m_count_max);
     }
 }

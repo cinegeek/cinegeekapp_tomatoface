@@ -17,9 +17,6 @@ Class RottenAPI{
         $path = preg_replace('/\s+/', '_', $value->title);
         $path = "posters/".$path.".jpg";
         saveimage($value->posters->original,$path);
-        
-        //$title = translate($value->title);
-        //$detail = translate($value->critics_consensus);
         echo $value->title."<br>";
         echo $value->d."<br>";
         echo $value->ratings->critics_score."<br><br>";
@@ -38,7 +35,7 @@ Class RottenAPI{
     $info = json_decode(trim($movie_info));
     $movie = $info->movies;
     if(count($movie) > 0){
-      return $movie[0]->title."/".$movie[0]->ratings->critics_score;
+      return $movie[0]->ratings->critics_score;
     }else{
       return null;
     }

@@ -52,18 +52,18 @@ if($info->picture != ""){
 }else{
   $imgurl = "img/tomatoimgdammy.gif";
 }
+$str_arr = array("ふむふむ。","あ～なるほどね。","お！","ふーむ。","ほうほう。","そうきたかっ！","あるね！");
+shuffle($str_arr);
 if($_POST['fm_num'] != $num - 1){
-$ranum = Math.floor( Math.random() * 7);
-$str_arr = ["ふむふむ。","あ～なるほどね。","お！","ふーむ。","ほうほう。","そうきたかっ！","あるね！"];
 echo <<<EOF
 <img class="radirect fbmimg" src='{$imgurl}'/>
-<p>{$str_arr[$ranum]}</br>『 <span class='font2'>{$user_movies['data'][$fm_num]['name']}</span> 』<br/>お次はと...</p>
+<p>{$str_arr[0]}</br>『 <span class='font2'>{$user_movies['data'][$fm_num]['name']}</span> 』<br/>お次はと...</p>
 <p><img src='img/loadinfo.gif'/><p>
 EOF;
 }else{
 echo <<<EOF
 <img class="radirect fbmimg" src='{$imgurl}'/>
-<p>{$str_arr[$ranum]}</br>『 <span class='font2'>{$user_movies['data'][$fm_num]['name']}</span> 』<br/>以上ですべてですね。</p>
+<p>{$str_arr[0]}</br>『 <span class='font2'>{$user_movies['data'][$fm_num]['name']}</span> 』<br/>以上ですべてですね。</p>
 EOF;
 }
 break;

@@ -54,15 +54,28 @@
 }
 /*フォント*/
 .font1{
+	font-size:18px;
+	font-weight:bold;
 	color:#3a7d08;
 }
 .font2{
+	font-size:18px;
+	font-weight:bold;
 	color:#0c8de5;
 }
 .font3{
+	font-size:18px;
+	font-weight:bold;
 	color:#f41414;
 }
-
+.font4{
+	font-size:14px;
+}
+.font5{
+	font-size:18px;
+	font-weight:bold;
+	color:#f41414;
+}
 .radirect{
     border-radius: 8px;
     -webkit-border-radius: 8px;
