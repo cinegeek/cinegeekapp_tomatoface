@@ -1,6 +1,7 @@
 var m_count = 0;
 var m_count_max = 0;
 var m_arr = new Array();
+var p_arr = new Array();
 function loadCont(){
 	$("#maincontents").html("<div class='loadingimg'><img src='img/loadinfo.gif'/></div><div id='contents'><div class='face'></div><div class='tomatomen'></div></div>");
     $(".tomatomen").html("<img src='img/tomatomen.png'/>");
@@ -16,12 +17,9 @@ function createXMLHttpRequest(){
     }else{
         return new ActiveXObject("Microsoft.XMLHTTP");
     }
-
 }
 function XMLHttpRequestByPost(postdata,num){
-
     var request = createXMLHttpRequest();
-
     /* ステータス( 読み込み中なのか完了したのか) が変更されたら、readyStateChangeHandler を実行 */
     request.open("POST", "sys/catch.php" , true);
     request.onreadystatechange = readyStateChangeHandler;
@@ -58,10 +56,8 @@ function XMLHttpRequestByPost(postdata,num){
             break;
         }
     }
-
 }
 function XMLHttpCritics(searchstr){
-
     var request = createXMLHttpRequest();
     request.open("POST", "sys/critics.php" , true);
     request.onreadystatechange = readyStateChangeHandler;
@@ -70,21 +66,23 @@ function XMLHttpCritics(searchstr){
     function readyStateChangeHandler(){
         switch(request.readyState){
             case 4:
-            $('.fukicont').append("<p>" + m_arr[m_count]+"/"+request.responseText+ "</p>");
-
+            $('.fukicont').css({
+                marginTop:"620px",
+                opacity:"0"
+            });
+            $('.fukicont').html("<div class='rtcont'>" + m_arr[m_count]+"/"+request.responseText+ "</div>");
             $('.fukicont').animate({
-                marginTop:400 - m_count*15 + "px",
+                marginTop:"400px",
                 opacity:"1"
             },400,"easeOutBack");
             m_count ++;
+            p_arr.push($('.point').text());
             criticsStr();
             break;
         }
     }
-
 }
 function proimg(){
-    
     $('.tomatomen').animate({
         opacity:"1",
         marginTop:"-300px",
@@ -98,14 +96,14 @@ function fukidashiout(){
         opacity:"1"
     },1000);
     
-   $('.tomatomen').animate({
+    $('.tomatomen').animate({
         marginTop:"-150px",
         marginLeft:"150px",
     },800,"easeInOutCubic");
-   $('.tomatomen img').animate({
+    $('.tomatomen img').animate({
         width:"400px"
     },800,"easeInOutCubic");
-   $('.cont2').delay(3000).animate({
+    $('.cont2').delay(3000).animate({
         opacity:"1"
     },1000,"easeOutSine");
 }
@@ -163,6 +161,11 @@ function movieEnd(){
 function criticsStr(){
     if(m_count != m_count_max){
         XMLHttpCritics(m_arr[m_count]);
+    }else{
+        var point = 0;
+        for(var i = o ; i < m_count_max ; i++){
+            point += p_arr[i];
+        }
+        alert(point / m_count_max);
     }
 }
-

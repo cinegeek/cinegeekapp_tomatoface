@@ -7,7 +7,7 @@ function setDatabase($usr_id,$name,$gender,$pic,$movies){
   	$con = mysql_connect($url,$user,$pass);
 	if (!$con)
 	  {
-	  die('Could not connect: ' . mysql_error());
+	  	die('Could not connect: ' . mysql_error());
 	  }
 	mysql_query("SET NAMES 'utf8'");
 	mysql_select_db($db1, $con);

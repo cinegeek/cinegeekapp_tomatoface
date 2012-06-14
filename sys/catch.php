@@ -53,8 +53,8 @@ if($info->picture != ""){
   $imgurl = "img/tomatoimgdammy.gif";
 }
 if($_POST['fm_num'] != $num - 1){
-	$ranum = Math.floor( Math.random() * 6);
-	$str_arr = ["ふむふむ。","あーなるほどね。","お！","ふーむ。","ほうほう。","うん。"];
+$ranum = Math.floor( Math.random() * 7);
+$str_arr = ["ふむふむ。","あ～なるほどね。","お！","ふーむ。","ほうほう。","そうきたかっ！","あるね！"];
 echo <<<EOF
 <img class="radirect fbmimg" src='{$imgurl}'/>
 <p>{$str_arr[$ranum]}</br>『 <span class='font2'>{$user_movies['data'][$fm_num]['name']}</span> 』<br/>お次はと...</p>

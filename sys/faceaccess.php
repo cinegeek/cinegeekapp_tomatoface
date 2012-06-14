@@ -29,6 +29,4 @@ if ($user) {
 </head>
 <body>
 </body>
-</html> 
-
-
+</html>
