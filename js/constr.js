@@ -1,7 +1,9 @@
 var m_count = 0;
 var m_count_max = 0;
+var point_ave = 0;
 var m_arr = new Array();
 var p_arr = new Array();
+var poster_arr = new Array();
 function loadCont(){
 
 	$("#maincontents").html("<div class='loadingimg'><img src='img/loadinfo.gif'/></div><div id='contents'><div class='face'></div><div class='tomatomen'></div></div>");
@@ -68,12 +70,17 @@ function XMLHttpCritics(searchstr){
         switch(request.readyState){
             case 4:
                 var perstr = "";
-                if(request.responseText != " <span class='font5'>%</span>"){
-                    $('.fukicont .font2:eq('+m_count+')').append(request.responseText);
+                if(request.responseText != "<img src='img/tomato_green.jpg'/><span class='point font7'>%</span>"){
+                    $('.fukicont .font_critics:eq('+m_count+')').html(" "+request.responseText);
+                    var data = $('.fukicont .font_critics:eq('+m_count+') .point').text();
+                    var sub_data = data.replace(/[%]/,'');
+                    p_arr.push(sub_data);
                 }else{
-                    $('.fukicont .font2:eq('+m_count+')').append("対象外です");
-                    $('.fukicont .font2:eq('+m_count+')').css("color","#ddd");
+                    $('.fukicont .font_critics:eq('+m_count+') .font6').remove();
+                    $('.fukicont .font_critics:eq('+m_count+')').append(" 対象外です");
+                    $('.fukicont .font_critics:eq('+m_count+')').css("color","#ddd");
                 }
+                
                 m_count++;
                 criticsStr();
             break;
@@ -124,7 +131,7 @@ function movieSort(num){
         XMLHttpRequestByPost("facebookmovies",num);
         m_count ++;
     }else{
-        $(".fukicont").delay(4500).animate({
+        $(".fukicont").delay(3000).animate({
             opacity:"0"
         },500,"easeOutSine",movieEnd);
     }
@@ -134,15 +141,15 @@ function movieEnd(){
         marginTop:"500px",
         opacity:"0"
     });
-    $('.fukicont').html("<p class='m_all'>ではこちらを映画評論サイト『Rotten Tomato』で</br>評価してもらいましょう！</br></p>");
+    $('.fukicont').html("<div class='critics_box'><p class='m_all'>さてそれでは『Rotten Tomato』で評価してもらいます！</br></p><p><img src='img/loading_critics.gif'/></p>");
     for(var i = 0 ; i < m_arr.length ; i++){
-        $('.fukicont').append("<p class='font2'>" + m_arr[i] + "</p>");
+        $('.fukicont').append("<p class='font_critics'>" + m_arr[i] + "<span class='font6'> 評価中...<span></p>");
         if(i == m_arr.length - 1){
-            $('.fukicont .m_all').append("");
+            $('.fukicont .m_all').append("</div>");
         }
     }
     $('.fukicont').animate({
-        marginTop:400 - $('.fukicont').height()/2 + "px",
+        marginTop:300 - $('.critics_box').height()/2 +"px",
         opacity:"1"
     },400,"easeOutBack",function(){
         m_count = 0;
@@ -153,5 +160,31 @@ function criticsStr(){
     if(m_count != m_count_max){
         XMLHttpCritics(m_arr[m_count]);
     }else{
+        criticsEnd();
+    }
+}
+function criticsEnd(){
+    $('.fukicont').delay(1000).animate({
+        opacity:"0"
+    },500,"easeOutSine",function(){
+        $('.fukicont').html("");
+        for(var i = 0 ; i < p_arr.length ; i++){
+            point_ave += Number(p_arr[i]);
+        }
+        point_ave = Math.floor(point_ave / p_arr.length);
+        $('.fukicont').html("あなたの平均点は...</br>")
+        $('.fukicont').css({
+            marginTop:"200px"
+        })
+        $('.fukicont').animate({
+            opacity:"1"
+        },500,"easeOutSine",criticsEndEnd);
+    })
+}
+function criticsEndEnd(){
+    if(point_ave > 50){
+        $('.fukicont').append("<img src='img/tomato_red_big.png'/> <span class='font8'>" + point_ave + "%</span>");
+    }else{
+        $('.fukicont').append("<img src='img/tomato_green_big.png'/> <span class='font8'>" + point_ave + "%</span>");
     }
 }

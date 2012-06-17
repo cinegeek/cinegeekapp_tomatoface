@@ -55,6 +55,21 @@ Class RottenAPI{
       return null;
     }
   }
+  function get_title($search_str){
+    
+    $rotten_str = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey='.ROTTEN_API.'&q='.$search_str.'&page_limit=1';
+    $rotten_str = preg_replace('/\s+/', '+', $rotten_str);
+    
+    $movie_info = file_get_contents($rotten_str);
+    
+    $info = json_decode(trim($movie_info));
+    $movie = $info->movies;
+    if(count($movie) > 0){
+      return $movie[0]->title;
+    }else{
+      return null;
+    }
+  }
 
   function get_opening(){
     

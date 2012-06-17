@@ -3,9 +3,18 @@ require_once("lib/movie/rottentomato.php");
 require_once("lib/yuhhh/translate.php");
 $trans = new Translator();
 $rapi = new RottenAPI();
-if($trans->TranslateToEn($_POST['str']) != ""){
-	$m = $trans->TranslateToEn($_POST['str']);
-	echo " <span class='font5'>".$rapi->get_point($m)."%</span>";
+$trans_str = $trans->TranslateToEn($_POST['str']);
+if(isset($trans_str) || $trans_str != ""){
+	$point = $rapi->get_point($trans_str);
+	$title = $rapi->get_title($trans_str);
 }else{
-	echo " <span class='font5'>".$rapi->get_point($_POST['str'])."%</span>";
+	$point = $rapi->get_point($_POST['str']);
+	$title = $rapi->get_title($_POST['str']);
+}
+if($point > 50){
+	$tomato = "<img src='img/tomato_red.jpg'/>";
+	echo $title." <span class='font6'>".$tomato."<span class='point font5'>".$point."%</span>";	
+}else{
+	$tomato = "<img src='img/tomato_green.jpg'/>";
+	echo $tomato."<span class='point font7'>".$point."%</span>";	
 }

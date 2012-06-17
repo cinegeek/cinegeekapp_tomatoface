@@ -21,6 +21,10 @@
 	margin-left:180px;
 	margin-top:-300px;
 }
+p{
+	margin-top:8px;
+	margin-bottom:8px;
+}
 .face{
 	position: absolute;
 	background-image: url("../img/fukidashi.png");
@@ -34,8 +38,8 @@
 .fukicont{
 	font-size:18px;
 	font-weight:bold;
-	width:450px;
-	height:250px;
+	width:480px;
+	height:800px;
 	margin-top:250px;
 	margin-left:auto;
 	margin-right:auto;
@@ -63,6 +67,11 @@
 	font-weight:bold;
 	color:#0c8de5;
 }
+.font_critics{
+	font-size:14px;
+	font-weight:bold;
+	color:#0c8de5;
+}
 .font3{
 	font-size:18px;
 	font-weight:bold;
@@ -72,9 +81,24 @@
 	font-size:14px;
 }
 .font5{
-	font-size:18px;
 	font-weight:bold;
 	color:#f41414;
+}
+.font7{
+	
+	font-weight:bold;
+	color:#90d720;
+}
+.font6{
+	font-weight:bold;
+	color:#ddd;	
+}
+.font8{
+	font-size:36px;
+	color:#3a7d08;
+}
+.m_all{
+	font-size:14px;
 }
 .radirect{
     border-radius: 8px;
