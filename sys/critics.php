@@ -1,6 +1,6 @@
 <?php
 require_once("lib/movie/rottentomato.php");
-require_once("lib/yuhhh/translate.php");
+require_once("lib/yuhhh/Translate.php");
 $trans = new Translator();
 $rapi = new RottenAPI();
 $trans_str = $trans->TranslateToEn($_POST['str']);

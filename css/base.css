@@ -94,8 +94,8 @@ p{
 	color:#ddd;	
 }
 .font8{
-	font-size:36px;
-	color:#3a7d08;
+	font-size:40px;
+	color:#000;
 }
 .m_all{
 	font-size:14px;
@@ -110,4 +110,14 @@ p{
 }
 .nextbtn{
 	margin-top:20px;
+}
+.box{
+	margin:2px;
+	padding:2px;
+	border-radius:8px;
+    -webkit-border-radius:8px;
+    -moz-border-radius: 8px;	
+}
+.last_btn{
+	margin-top:35px;
 }

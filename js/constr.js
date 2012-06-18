@@ -4,6 +4,8 @@ var point_ave = 0;
 var m_arr = new Array();
 var p_arr = new Array();
 var poster_arr = new Array();
+var face = "";
+var name = "";
 function loadCont(){
 
 	$("#maincontents").html("<div class='loadingimg'><img src='img/loadinfo.gif'/></div><div id='contents'><div class='face'></div><div class='tomatomen'></div></div>");
@@ -36,6 +38,8 @@ function XMLHttpRequestByPost(postdata,num){
                 if(request.status == 200){
                 $(".loadingimg").remove();
                 $('.face').html(request.responseText);
+                face = $('.fukicont img').attr("src");
+                name = $('.font1').text();
                 m_count_max = Number($(".face .font3").text());
                 }
             }else if(postdata == "facebookmovies"){
@@ -172,7 +176,7 @@ function criticsEnd(){
             point_ave += Number(p_arr[i]);
         }
         point_ave = Math.floor(point_ave / p_arr.length);
-        $('.fukicont').html("あなたの平均点は...</br>")
+        $('.fukicont').html("<p><img class='radirect' width='150' src='" + face + "'/></p><p><span class='font1'>" + name + "</span>さんの平均点は...</p>");
         $('.fukicont').css({
             marginTop:"200px"
         })
@@ -183,8 +187,37 @@ function criticsEnd(){
 }
 function criticsEndEnd(){
     if(point_ave > 50){
-        $('.fukicont').append("<img src='img/tomato_red_big.png'/> <span class='font8'>" + point_ave + "%</span>");
+        $('.fukicont').append("<div class='box'><p><img src='img/tomato_red_big.png'/> <span class='font8'>" + point_ave + "%</span>　です。</p></div>");
     }else{
-        $('.fukicont').append("<img src='img/tomato_green_big.png'/> <span class='font8'>" + point_ave + "%</span>");
+        $('.fukicont').append("<div class='box'><p><img src='img/tomato_green_big.png'/> <span class='font8'>" + point_ave + "%</span>　です。</p></div>");
     }
+    var str = "";
+    if(10 > point_ave && point_ave >= 0 ){
+        str = "<p>あまり映画はお好きではない？</br>もしくはFacebookで好きな映画を</br>登録していないのでしょうか。。。</p>";
+    }else if(20 > point_ave && point_ave >= 10){
+        str = "<p>これほど低い点数も珍しい。<br>個性的な映画センスをお持ちのようです。";
+    }else if(30 > point_ave && point_ave >= 20){
+        str = "<p>『Rotten Tomato』がすべてじゃない！</br>あなたのマニアックな映画趣味を貫いてください！</p>"
+    }else if(50 > point_ave && point_ave >= 30){
+        str = "<p>うーん。賛否両論の映画がお好みなのでしょうか。</br>あまり評論家うけは良くないようです。";
+    }else if(60 > point_ave && point_ave >= 50){
+        str = "<p>あなたの映画センスはまずまずのようです。</br>無難な点数ですね。";
+    }else if(70 > point_ave && point_ave >= 60){
+        str = "<p>このラインの点数の人はセンスが良い人が多いです。</br>あなたの映画趣味は気取っていませんね。";
+    }else if(80 > point_ave && point_ave >= 70){
+        str = "<p>かなりの映画センスをお持ちのようで。。</br>素晴らしい。。";
+    }else if(90 > point_ave && point_ave >= 80){
+        str = "<p>映画関係者の方ですか？？</br>あなたはコアな映画好きのようです。";
+    }else if(100 > point_ave && point_ave >= 90){
+        str = "<p>うわでた100点。</br>満点なんてそうそう出るものではありません。</br>脱帽です。";
+    }
+    var text = encodeURIComponent("【映画のモノサシ】" + name + "さんの映画スコアは" + point_ave + "%です! http://cinegeek.net/movie");
+    $('.fukicont').append(str);
+    $('.fukicont').append('<p class="last_btn"><a href="#"><img class="facebtn" src="img/last_facebtn.gif" onmouseover="this.src='+ "'img/last_facebtn_on.gif'" + '" onmouseout="this.src=' + "'img/last_facebtn.gif'" + '" alt="last_face"/></a></p>');
+    $('.fukicont').append('<p><a href="http://twitter.com/intent/tweet?text=' + text + '" target="_blank" ><img class="twitterbtn" src="img/last_twitterbtn.gif" onmouseover="this.src='+ "'img/last_twitterbtn_on.gif'" + '" onmouseout="this.src=' + "'img/last_twitterbtn.gif'" + '" alt="last_twitter"/></a></p>');
 }
+
+
+
+
+
