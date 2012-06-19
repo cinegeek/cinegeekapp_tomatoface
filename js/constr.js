@@ -7,7 +7,6 @@ var poster_arr = new Array();
 var face = "";
 var name = "";
 function loadCont(){
-
 	$("#maincontents").html("<div class='loadingimg'><img src='img/loadinfo.gif'/></div><div id='contents'><div class='face'></div><div class='tomatomen'></div></div>");
     $("#maincontents").append("<div class='logo'><a href='http://cinegeek.net/tomatoface/'><img src='img/title_logo_small.png'/></a></div>")
     $(".tomatomen").html("<img src='img/tomatomen.png'/>");
@@ -98,6 +97,25 @@ function XMLHttpPOST(str){
     request.onreadystatechange = readyStateChangeHandler;
     request.setRequestHeader( "Content-Type" ,  "application/x-www-form-urlencoded");
     request.send("text=" + str);
+    function readyStateChangeHandler(){
+        switch(request.readyState){
+            case 4:
+            XMLHttpSave();
+            break;
+        }
+    }
+}
+function XMLHttpSave(){
+    var request = createXMLHttpRequest();
+    request.open("POST", "sys/save.php" , true);
+    request.onreadystatechange = readyStateChangeHandler;
+    request.setRequestHeader( "Content-Type" ,  "application/x-www-form-urlencoded");
+    var movies = "";
+    for(var i = 0 ; i < m_arr.length ; i++){
+        movies += m_arr[i];
+        if(i != m_arr.length - 1) movies += ",";
+    }
+    request.send("name=" + name + "&pic=" + face + "&movies=" + movies);
     function readyStateChangeHandler(){
         switch(request.readyState){
             case 4:
