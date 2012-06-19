@@ -1,5 +1,5 @@
 <?php
-require 'lib/facebook-php-sdk/src/facebook.php';
+require_once dirname(__FILE__).'/lib/facebook-php-sdk/src/facebook.php';
 // require 'lib/database.php';
 $facebook = new Facebook(array(
   'appId'  => '482924718390278',
@@ -11,7 +11,11 @@ $_SESSION['faceid'] = serialize($facebook);
 if ($user) {
   $logoutUrl = $facebook->getLogoutUrl();
 } else {
-  $loginUrl = $facebook->getLoginUrl();
+  $loginUrl = $facebook->getLoginUrl(
+    array(
+        'scope'     => 'status_update,publish_stream,manage_pages,offline_access'
+    )
+  );
   header("Location: ".$loginUrl);
 }
 ?>

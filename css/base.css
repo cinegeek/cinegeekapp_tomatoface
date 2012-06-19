@@ -87,7 +87,7 @@ p{
 .font7{
 	
 	font-weight:bold;
-	color:#90d720;
+	color:#6cd435;
 }
 .font6{
 	font-weight:bold;
@@ -95,7 +95,7 @@ p{
 }
 .font8{
 	font-size:40px;
-	color:#000;
+	color:#f41414;
 }
 .m_all{
 	font-size:14px;
@@ -112,12 +112,20 @@ p{
 	margin-top:20px;
 }
 .box{
-	margin:2px;
-	padding:2px;
+	margin:1px;
+	padding:1px;
 	border-radius:8px;
     -webkit-border-radius:8px;
     -moz-border-radius: 8px;	
 }
 .last_btn{
 	margin-top:35px;
+}
+.last_btn2{
+	margin-top:5px;
+}
+.logo{
+	position: absolute;
+	top:35px;
+	right:35px;
 }

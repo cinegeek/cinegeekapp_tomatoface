@@ -13,6 +13,11 @@ body{
 }
 
 /*フレーム設定*/
+#maincontents{
+	opacity: 0;
+	-moz-opacity: 0;
+	filter:alpha(opacity=0);
+}
 #frame_right{
 	position:absolute;
 	z-index: 10000;
@@ -62,6 +67,28 @@ body{
 #canvas_mask{
 	z-index:5000;
 	position: absolute;
+}
+.social{
+	position: absolute;
+	bottom:30px;
+	left:40px;
+	width:486px;
+	z-index:20000;
+}
+.social .facebook{
+	display:inline;
+	float:left;
+	width: 120px; 
+}
+.social .google{
+	display:inline;
+	float:left;
+	width: 120px; 
+}
+.social .twitter{
+	display:inline;
+	float:left;
+	width: 120px; 
 }
 #tomato_face{
 	position: absolute;
