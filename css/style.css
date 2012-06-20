@@ -11,7 +11,14 @@ body{
 	margin:0;
 	overflow: hidden;
 }
-
+a:link {
+	border-style: none;
+	text-decoration: none;
+}
+a:hover {
+	border-style: none;
+	text-decoration: none;
+}
 /*フレーム設定*/
 .iesorry{
 	width:600px;
