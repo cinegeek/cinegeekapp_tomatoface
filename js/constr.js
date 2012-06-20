@@ -74,15 +74,15 @@ function XMLHttpCritics(searchstr){
         switch(request.readyState){
             case 4:
                 var perstr = "";
-                if(request.responseText != "<img src='img/tomato_green.jpg'/><span class='point font7'>%</span>"){
+                if(request.responseText.indexOf(">-1%<") !== -1 || request.responseText.indexOf(">%<") !== -1){
+                    $('.fukicont .font_critics:eq('+m_count+') .font6').remove();
+                    $('.fukicont .font_critics:eq('+m_count+')').append(" 対象外です");
+                    $('.fukicont .font_critics:eq('+m_count+')').css("color","#ddd");
+                }else{
                     $('.fukicont .font_critics:eq('+m_count+')').html(" "+request.responseText);
                     var data = $('.fukicont .font_critics:eq('+m_count+') .point').text();
                     var sub_data = data.replace(/[%]/,'');
                     p_arr.push(sub_data);
-                }else{
-                    $('.fukicont .font_critics:eq('+m_count+') .font6').remove();
-                    $('.fukicont .font_critics:eq('+m_count+')').append(" 対象外です");
-                    $('.fukicont .font_critics:eq('+m_count+')').css("color","#ddd");
                 }
                 
                 m_count++;
@@ -240,8 +240,8 @@ function criticsEndEnd(){
         str = "<p>あなたの映画センスはまずまずのようです。</br>無難な点数ですね。</p>";
         ftext = name + "さんの映画センスは" + point_ave +"%です。あなたの映画センスはまずまずのようです。</br>無難な点数ですね。</p>";
     }else if(70 > point_ave && point_ave >= 60){
-        str = "<p>このラインの点数の人はセンスが良い人が多いです。</br>あなたの映画趣味は気取っていませんね。</p>";
-        ftext = name + "さんの映画センスは" + point_ave +"%です。このラインの点数の人はセンスが良い人が多いです。あなたの映画趣味は気取っていませんね。";
+        str = "<p>ふーむふむふむ。なかなかいい点数です。</br>あなたの映画趣味は気取っていませんね。</p>";
+        ftext = name + "さんの映画センスは" + point_ave +"%です。ふーむふむふむ。なかなかいい点数です。あなたの映画趣味は気取っていませんね。";
     }else if(80 > point_ave && point_ave >= 70){
         str = "<p>かなりの映画センスをお持ちのようで。。</br>素晴らしい。。</p>";
         ftext = name + "さんの映画センスは" + point_ave +"%です。かなりの映画センスをお持ちのようで。。素晴らしい。。";

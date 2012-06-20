@@ -16,5 +16,5 @@ if($point > 50){
 	echo $title." <span class='font6'>".$tomato."<span class='point font5'>".$point."%</span>";	
 }else{
 	$tomato = "<img src='img/tomato_green.jpg'/>";
-	echo $tomato."<span class='point font7'>".$point."%</span>";	
+	echo $title." <span class='font6'>".$tomato."<span class='point font7'>".$point."%</span>";	
 }

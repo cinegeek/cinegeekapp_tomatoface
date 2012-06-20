@@ -5,7 +5,3 @@ function browsCheck(){
 		return (brows > 8 || brows == 0 )? false : true;
 	}
 }
-$(document).ready(function(){
-	var c = new browsCheck();
-	if(c.oldverResult())//function
-});

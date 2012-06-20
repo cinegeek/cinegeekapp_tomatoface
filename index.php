@@ -11,11 +11,17 @@
 	<script type="text/javascript" src="js/tf_canvas.js"></script>
 	<script type="text/javascript" src="js/title.js"></script>
 	<script type="text/javascript" src="js/constr.js"></script>
+	<script type="text/javascript" src="js/lib/yuhhh.js"></script>
 	<script type="text/javascript">
 	 	$(document).ready(function(){
+	 		var c = new browsCheck();
+			if(c.oldverResult()){
+				$("body").html("<p class='iesorry'>お使いのブラウザには対応しておりません。</br>お手数ですがアップデートもしくは他のブラウザでお試しください。")
+				return;
+			}
 			titleSet();
 			canvas = document.getElementById('canvas_mask');
-			if ( ! canvas || ! canvas.getContext ) { alert("false"); }
+			if ( ! canvas || ! canvas.getContext ) {  }
 			ctx = canvas.getContext('2d');
 			target = new Image();
 			target.src = "img/tomato_face.png";
