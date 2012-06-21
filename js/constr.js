@@ -139,7 +139,7 @@ function fukidashiout(){
     
     $('.tomatomen').animate({
         marginTop:"-150px",
-        marginLeft:"150px",
+        marginLeft:"150px"
     },800,"easeInOutCubic");
     $('.tomatomen img').animate({
         width:"400px"
