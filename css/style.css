@@ -19,6 +19,9 @@ a:hover {
 	border-style: none;
 	text-decoration: none;
 }
+a img {
+	border-style: none;
+}
 /*フレーム設定*/
 .iesorry{
 	width:600px;
